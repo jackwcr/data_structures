@@ -4,6 +4,7 @@
 //  | element |  next   |
 //  |_________|_________|
 //
+// Think of this an object {element: someData, next: true/false}
 
 function LinkedList() {
   let length = 0;
@@ -20,11 +21,13 @@ function LinkedList() {
   };
 
   // a function to return the head of the node that it is at currently?
+  // maybe pointer is a better word
   this.head = () => {
     return head;
   };
 
   // a function to add to the end of the linkedlist
+  // to add a node check if you are at the end of the list and add a node
   this.add = (element) => {
     // must declare the new Node that will be made
     let node = new Node(element);
@@ -37,13 +40,14 @@ function LinkedList() {
       while (currentNode.next) {
         currentNode = currentNode.next;
       }
-
+      // adding the node to the end of the list
       currentNode.next = node;
     }
     length++;
   };
 
   // a function to remove a node from the linkedlist
+  // to remove a node from a linkedlist you set the previousNode = nextNode if possible
   this.remove = (element) => {
     let currrentNode = head;
     let previousNode;
